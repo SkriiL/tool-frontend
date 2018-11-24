@@ -1,0 +1,21 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Registrieren</h4>
+  </div>
+  <div class="modal-body">
+    <form>
+      <label for="username">Nutzername</label>
+      <input class="form-control" [(ngModel)]="username" name="username" id="username">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" [(ngModel)]="email" name="email" id="email">
+      <label for="password">Passwort</label>
+      <input class="form-control" type="password" [(ngModel)]="password" name="password" id="password">
+    </form>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-outline-danger" (click)="close(modal)">Abbrechen</button>
+    <button type="button" class="btn btn-outline-primary" (click)="save(modal)">Registrieren</button>
+  </div>
+</ng-template>
+
+<button (click)="open(content)" class="btn btn-outline-primary">Registrieren <i class="fa fa-sign-in"></i></button>

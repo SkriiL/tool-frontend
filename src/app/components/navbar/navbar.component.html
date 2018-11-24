@@ -1,0 +1,11 @@
+<nav *ngIf="!currentUser" class="navbar navbar-dark bg-dark">
+  <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
+  <app-login (loggedIn)="loggedIn($event)"></app-login>
+  <app-register-modal></app-register-modal>
+</nav>
+
+<nav *ngIf="currentUser" class="navbar navbar-dark bg-dark">
+  <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
+  <button class="col-1 btn btn-dark">{{ currentUser.username }}</button>
+  <button class="col-1 btn btn-outline-primary" (click)="logout()">Logout</button>
+</nav>
