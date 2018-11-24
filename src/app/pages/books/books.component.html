@@ -1,3 +1,34 @@
-<p>
-  books works!
-</p>
+<div class="row mt-2">
+  <div class="col-8">
+    <h4 class="ml-2">
+      Bücher
+      <button class="btn btn-outline-primary" (click)="add()"><span class="fa fa-plus"></span></button>
+    </h4>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Autor</th>
+        <th>Preis</th>
+        <th>Besitz</th>
+        <th>Gelesen</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of (books | async)" (click)="select(book)">
+        <td>
+          <a [href]="book.link" style="color: black">{{ book.title }} <span class="fa fa-external-link"></span></a>
+        </td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.price | currency }}</td>
+        <td>{{ book.own | trueFalse }}</td>
+        <td>{{ book.read | trueFalse }}</td>
+        <td><button class="btn btn-outline-danger" (click)="delete(book)"><a class="fa fa-trash"></a></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4">
+    <app-book-edit [book]="selectedBook" [new]="new" (clicked)="close()"></app-book-edit>
+  </div>
+</div>

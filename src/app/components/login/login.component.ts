@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
       if (u.id !== -1) {
         if (u.password === this.password) {
           this.toastr.success('Login erfolgreich!');
-          sessionStorage.removeItem('id');
           sessionStorage.setItem('id', u.id.toString());
           this.loggedIn.emit(u);
           sub.unsubscribe();

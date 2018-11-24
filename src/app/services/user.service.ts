@@ -30,5 +30,14 @@ export class UserService {
     this.socketService.sendRequest('createUser', arg);
   }
 
+  getAll() {
+    this.socketService.sendRequest('getAllUsers', '');
+    return new Observable<User[]>(observer => {
+      this.socketService.onEvent('users').subscribe(us => {
+        return observer.next(us);
+      });
+    });
+  }
+
   constructor(private socketService: SocketService) { }
 }

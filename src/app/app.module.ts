@@ -13,6 +13,10 @@ import {ToastrModule} from 'ngx-toastr';
 import {UserService} from './services/user.service';
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BookEditComponent } from './pages/books/book-edit.component';
+import {BookService} from './services/book.service';
+import { CurrencyPipe } from './pipes/currency.pipe';
+import { TrueFalsePipe } from './pipes/true-false.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     LoginComponent,
     RegisterModalComponent,
+    BookEditComponent,
+    CurrencyPipe,
+    TrueFalsePipe,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ToastrModule.forRoot(),
     NgbModule
   ],
-  providers: [UserService],
+  providers: [UserService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
