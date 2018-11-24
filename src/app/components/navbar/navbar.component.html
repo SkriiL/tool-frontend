@@ -1,5 +1,4 @@
 <nav *ngIf="!currentUser" class="navbar navbar-dark bg-dark">
-  <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
   <app-login (loggedIn)="loggedIn($event)"></app-login>
   <app-register-modal></app-register-modal>
 </nav>
