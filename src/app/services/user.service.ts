@@ -39,5 +39,10 @@ export class UserService {
     });
   }
 
+  edit(user: User) {
+    const userStr = user.id + '|' + user.username + '|' + user.email + '|' + user.password;
+    this.socketService.sendRequest('editUser', userStr);
+  }
+
   constructor(private socketService: SocketService) { }
 }

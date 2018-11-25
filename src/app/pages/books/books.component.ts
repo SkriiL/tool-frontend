@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {Observable} from 'rxjs';
 import {Book} from '../../models/book.model';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -12,7 +13,8 @@ export class BooksComponent implements OnInit {
   public books: Observable<Book[]>;
   public new: boolean;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     const id = parseInt(sessionStorage.getItem('id'), 10);
@@ -37,6 +39,7 @@ export class BooksComponent implements OnInit {
   delete(book: Book) {
     this.bookService.deleteById(book.id);
     window.location.reload();
+    this.toastr.success(book.title + ' wurde gelöscht!');
   }
 
 }

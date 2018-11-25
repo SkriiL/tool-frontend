@@ -17,6 +17,7 @@ import { BookEditComponent } from './pages/books/book-edit.component';
 import {BookService} from './services/book.service';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { TrueFalsePipe } from './pipes/true-false.pipe';
+import { EditMeModalComponent } from './components/edit-me-modal/edit-me-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TrueFalsePipe } from './pipes/true-false.pipe';
     BookEditComponent,
     CurrencyPipe,
     TrueFalsePipe,
+    EditMeModalComponent,
   ],
   imports: [
     BrowserModule,
