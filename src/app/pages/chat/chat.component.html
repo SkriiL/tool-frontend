@@ -1,0 +1,5 @@
+<app-message *ngFor="let message of messages" [message]="message"></app-message>
+<div class="row ml-2 mr-2 mt-2">
+  <input class="form-control col-9" name="text" [(ngModel)]="messageTxt" placeholder=". . .">
+  <button class="btn btn-outline-secondary col-3" (click)="send()">Senden</button>
+</div>

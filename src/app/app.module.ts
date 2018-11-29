@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BooksComponent } from './pages/books/books.component';
@@ -18,6 +18,10 @@ import {BookService} from './services/book.service';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { TrueFalsePipe } from './pipes/true-false.pipe';
 import { EditMeModalComponent } from './components/edit-me-modal/edit-me-modal.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import {MessageService} from './services/message.service';
+import { MessageComponent } from './components/message/message.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,9 @@ import { EditMeModalComponent } from './components/edit-me-modal/edit-me-modal.c
     CurrencyPipe,
     TrueFalsePipe,
     EditMeModalComponent,
+    ChatComponent,
+    MessageComponent,
+    DateFormatPipe,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,7 @@ import { EditMeModalComponent } from './components/edit-me-modal/edit-me-modal.c
     ToastrModule.forRoot(),
     NgbModule
   ],
-  providers: [UserService, BookService],
+  providers: [UserService, BookService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

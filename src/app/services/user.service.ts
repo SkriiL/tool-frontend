@@ -10,7 +10,8 @@ export class UserService {
   getSingleById(id: number) {
     this.socketService.sendRequest('getUserById', id.toString());
     return new Observable<User>(observer => {
-      this.socketService.onEvent('user').subscribe(u => {
+      const event = 'user' + id;
+      this.socketService.onEvent(event).subscribe(u => {
         return observer.next(u);
       });
     });

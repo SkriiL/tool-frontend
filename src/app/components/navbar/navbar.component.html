@@ -5,6 +5,7 @@
 
 <nav *ngIf="currentUser" class="navbar navbar-dark bg-dark">
   <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
+  <button class="col-md btn btn-dark" routerLink="/chat">Chatroom</button>
   <app-edit-me-modal [currentUser]="currentUser"></app-edit-me-modal>
   <button class="col-1 btn btn-outline-primary" (click)="logout()">Logout</button>
 </nav>

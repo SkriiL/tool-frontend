@@ -11,6 +11,11 @@ export class AppComponent implements OnInit {
     if (!sessionStorage.getItem('id')) {
       this.route.navigate(['']);
     }
+    window.onbeforeunload = this.removeId;
+  }
+
+  removeId() {
+    sessionStorage.removeItem('id');
   }
 
   constructor(private route: Router) {}
