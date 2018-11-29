@@ -17,3 +17,13 @@
   overflow: auto;
   margin-bottom: 2px;
 }
+
+.clickable {
+  color: black;
+  background-color: transparent;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  color: darkslategrey;
+}

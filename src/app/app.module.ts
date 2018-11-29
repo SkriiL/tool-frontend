@@ -23,6 +23,7 @@ import {MessageService} from './services/message.service';
 import { MessageComponent } from './components/message/message.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { ChatDateComponent } from './components/chat-date/chat-date.component';
+import { ViewUserModalComponent } from './components/view-user-modal/view-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ChatDateComponent } from './components/chat-date/chat-date.component';
     MessageComponent,
     DateFormatPipe,
     ChatDateComponent,
+    ViewUserModalComponent,
   ],
   imports: [
     BrowserModule,
