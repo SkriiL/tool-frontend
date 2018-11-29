@@ -6,6 +6,7 @@ import {UserService} from '../../services/user.service';
 @Component({
   selector: 'app-message',
   template: `
+    <app-chat-date *ngIf="showDate" [date]="_message.date"></app-chat-date>
     <div class="card ml-2 mt-2 mr-2">
       <strong [class]="titleStyle">{{ user?.username }}</strong>
       <span [class]="textStyle">{{ _message.text }}</span>
@@ -35,6 +36,7 @@ export class MessageComponent implements OnInit {
       sub.unsubscribe();
     });
   }
+  @Input() showDate = false;
 
   constructor(private userService: UserService) { }
 
