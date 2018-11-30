@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
   }
 
   loggedIn(user: User) {
-    console.log(user);
     this.currentUser = user;
   }
 
@@ -31,7 +30,6 @@ export class NavbarComponent implements OnInit {
   }
 
   chat() {
-    console.log(this.currentUser.rights);
     if (this.currentUser.rights.canChat) {
       this.router.navigate(['/chat']);
     } else {
