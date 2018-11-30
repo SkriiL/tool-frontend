@@ -24,6 +24,7 @@ import { MessageComponent } from './components/message/message.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { ChatDateComponent } from './components/chat-date/chat-date.component';
 import { ViewUserModalComponent } from './components/view-user-modal/view-user-modal.component';
+import { ImgPickerModalComponent } from './components/img-picker-modal/img-picker-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ViewUserModalComponent } from './components/view-user-modal/view-user-m
     DateFormatPipe,
     ChatDateComponent,
     ViewUserModalComponent,
+    ImgPickerModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { ViewUserModalComponent } from './components/view-user-modal/view-user-m
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule
+    NgbModule,
   ],
   providers: [UserService, BookService, MessageService],
   bootstrap: [AppComponent]

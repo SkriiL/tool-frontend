@@ -1,0 +1,18 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profilbild auswählen</h4>
+  </div>
+  <div class="modal-body">
+    <button class="btn btn-outline-secondary m-2" *ngFor="let img of imgs" (click)="pick(img, modal)">
+      <img [src]="'../../../assets/' + img" width="65">
+    </button>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-outline-danger" (click)="close(modal)">Schließen</button>
+  </div>
+</ng-template>
+
+<button *ngIf="!current" class="btn btn-outline-secondary mt-2" (click)="open(content)">Profilbild auswählen</button>
+<button *ngIf="current" class="btn btn-outline-secondary mt-2" (click)="open(content)">
+  <img [src]="'../../../assets/' + current" width="65">
+</button>

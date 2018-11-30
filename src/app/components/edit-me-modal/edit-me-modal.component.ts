@@ -12,6 +12,7 @@ export class EditMeModalComponent implements OnInit {
   public username: string;
   public email: string;
   public password: string;
+  public imgUrl: string;
   public user: User;
 
   @Input('currentUser')
@@ -20,6 +21,7 @@ export class EditMeModalComponent implements OnInit {
     this.username = value.username;
     this.email = value.email;
     this.password = value.password;
+    this.imgUrl = value.imgUrl;
   }
 
   constructor(private modalService: NgbModal,
@@ -37,6 +39,7 @@ export class EditMeModalComponent implements OnInit {
     this.username = undefined;
     this.email = undefined;
     this.password = undefined;
+    this.imgUrl = undefined;
     modal.close();
   }
 
@@ -45,8 +48,13 @@ export class EditMeModalComponent implements OnInit {
     this.user.username = this.username;
     this.user.email = this.email;
     this.user.password = this.password;
+    this.user.imgUrl = this.imgUrl;
     this.userService.edit(this.user);
     modal.close();
+  }
+
+  setImg(img: string) {
+    this.imgUrl = img;
   }
 
 }

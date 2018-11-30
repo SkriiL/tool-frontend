@@ -12,6 +12,7 @@ export class RegisterModalComponent implements OnInit {
   public username: string;
   public password: string;
   public email: string;
+  public imgUrl: string;
 
   constructor(private modalService: NgbModal,
               private userService: UserService,
@@ -32,12 +33,16 @@ export class RegisterModalComponent implements OnInit {
   }
 
   save(modal) {
-    this.userService.create(this.username, this.email, this.password);
+    this.userService.create(this.username, this.email, this.password, this.imgUrl);
     this.toastr.success('Sie können sich jetzt anmelden.', 'Nutzer ' + this.username + ' wurde erstellt.');
     this.username = undefined;
     this.password = undefined;
     this.email = undefined;
     modal.close();
+  }
+
+  setImg(img: string) {
+    this.imgUrl = img;
   }
 
 }

@@ -12,6 +12,7 @@
       <input class="form-control" type="email" [(ngModel)]="email" name="email" id="email">
       <label for="password">Passwort</label>
       <input class="form-control" type="password" [(ngModel)]="password" name="password" id="password">
+      <app-img-picker-modal (imgUrl)="setImg($event)" [current]="imgUrl"></app-img-picker-modal>
     </form>
   </div>
   <div class="modal-footer justify-content-between">

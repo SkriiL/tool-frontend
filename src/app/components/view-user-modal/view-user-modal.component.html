@@ -1,15 +1,18 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Nutzer <span class="font-italic">{{ user.username }}</span></h4>
+    <h4 class="modal-title" id="modal-basic-title">
+      Nutzer <span class="font-italic">{{ user?.username }}</span>
+      <img [src]="'../../../assets/' + user?.imgUrl" width="25px">
+    </h4>
   </div>
   <div class="modal-body">
     <form>
       <label for="id">ID</label>
-      <input class="form-control" [value]="user.id" name="id" id="id" disabled>
+      <input class="form-control" [value]="user?.id" name="id" id="id" disabled>
       <label for="username">Nutzername</label>
-      <input class="form-control" [value]="user.username" name="username" id="username" disabled>
+      <input class="form-control" [value]="user?.username" name="username" id="username" disabled>
       <label for="email">Email</label>
-      <input class="form-control" type="email" [value]="user.email" name="email" id="email" disabled>
+      <input class="form-control" type="email" [value]="user?.email" name="email" id="email" disabled>
     </form>
   </div>
   <div class="modal-footer justify-content-between">
@@ -17,4 +20,7 @@
   </div>
 </ng-template>
 
-<strong class="clickable" (click)="open(content)">{{ user.username }}</strong>
+<strong class="clickable" (click)="open(content)">
+  {{ user?.username }}
+  <img [src]="'../../../assets/' + user?.imgUrl" width="25">
+</strong>

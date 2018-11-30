@@ -26,8 +26,8 @@ export class UserService {
     });
   }
 
-  create(username: string, email: string, password: string) {
-    const arg = username + '|' + email + '|' + password;
+  create(username: string, email: string, password: string, imgUrl: string) {
+    const arg = username + '|' + email + '|' + password + '|' + imgUrl;
     this.socketService.sendRequest('createUser', arg);
   }
 
@@ -41,7 +41,7 @@ export class UserService {
   }
 
   edit(user: User) {
-    const userStr = user.id + '|' + user.username + '|' + user.email + '|' + user.password;
+    const userStr = user.id + '|' + user.username + '|' + user.email + '|' + user.password + '|' + user.imgUrl;
     this.socketService.sendRequest('editUser', userStr);
   }
 
