@@ -10,6 +10,11 @@
       <input class="form-control" [(ngModel)]="username" name="username" id="username">
       <label for="email">Email</label>
       <input class="form-control" type="email" [(ngModel)]="email" name="email" id="email">
+      <label for="rights">Rechte</label>
+      <select class="form-control" id="rights" [disabled]="!rights.canModifyRights">
+        <option *ngFor="let right of rightService.getAll()" [value]="right" (click)="setRights(right)"
+                [selected]="isCurrentRight(right)">{{ right.name }}</option>
+      </select>
       <label for="password">Passwort</label>
       <input class="form-control" type="password" [(ngModel)]="password" name="password" id="password">
       <app-img-picker-modal (imgUrl)="setImg($event)" [current]="imgUrl"></app-img-picker-modal>

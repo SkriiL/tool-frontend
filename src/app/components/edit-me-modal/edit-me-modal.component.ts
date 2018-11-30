@@ -3,6 +3,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
 import {ToastrService} from 'ngx-toastr';
+import {Right} from '../../models/rights.model';
+import {RightService} from '../../services/right.service';
 
 @Component({
   selector: 'app-edit-me-modal',
@@ -13,6 +15,7 @@ export class EditMeModalComponent implements OnInit {
   public email: string;
   public password: string;
   public imgUrl: string;
+  public rights: Right;
   public user: User;
 
   @Input('currentUser')
@@ -22,11 +25,13 @@ export class EditMeModalComponent implements OnInit {
     this.email = value.email;
     this.password = value.password;
     this.imgUrl = value.imgUrl;
+    this.rights = value.rights;
   }
 
   constructor(private modalService: NgbModal,
               private userService: UserService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              public rightService: RightService) { }
 
   ngOnInit() {
   }
@@ -40,6 +45,7 @@ export class EditMeModalComponent implements OnInit {
     this.email = undefined;
     this.password = undefined;
     this.imgUrl = undefined;
+    this.rights = undefined;
     modal.close();
   }
 
@@ -49,12 +55,21 @@ export class EditMeModalComponent implements OnInit {
     this.user.email = this.email;
     this.user.password = this.password;
     this.user.imgUrl = this.imgUrl;
+    this.user.rights = this.rights;
     this.userService.edit(this.user);
     modal.close();
   }
 
   setImg(img: string) {
     this.imgUrl = img;
+  }
+
+  setRights(rights: Right) {
+    this.rights = rights;
+  }
+
+  isCurrentRight(rights) {
+    return rights === this.rights;
   }
 
 }
