@@ -1,19 +1,19 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Nutzer <span class="font-italic">{{ user.username }}</span> bearbeiten</h4>
+    <h4 class="modal-title" id="modal-basic-title">Nutzer <span class="font-italic">{{ user?.username }}</span> bearbeiten</h4>
   </div>
   <div class="modal-body">
     <form>
       <label for="id">ID</label>
-      <input class="form-control" [value]="user.id" name="id" id="id" disabled>
+      <input class="form-control" [value]="user?.id" name="id" id="id" disabled>
       <label for="username">Nutzername</label>
       <input class="form-control" [(ngModel)]="username" name="username" id="username">
       <label for="email">Email</label>
       <input class="form-control" type="email" [(ngModel)]="email" name="email" id="email">
       <label for="rights">Rechte</label>
-      <select class="form-control" id="rights" [disabled]="!rights.canModifyRights">
+      <select class="form-control" id="rights" [disabled]="!rights?.canModifyRights">
         <option *ngFor="let right of rightService.getAll()" [value]="right" (click)="setRights(right)"
-                [selected]="isCurrentRight(right)">{{ right.name }}</option>
+                [disabled]="right.id === 3" [selected]="isCurrentRight(right)">{{ right.name }}</option>
       </select>
       <label for="password">Passwort</label>
       <input class="form-control" type="password" [(ngModel)]="password" name="password" id="password">
@@ -22,8 +22,9 @@
   </div>
   <div class="modal-footer justify-content-between">
     <button type="button" class="btn btn-outline-danger" (click)="close(modal)">Abbrechen</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="reset()">Zurücksetzen</button>
     <button type="button" class="btn btn-outline-primary" (click)="save(modal)">Bearbeiten</button>
   </div>
 </ng-template>
 
-<button (click)="open(content)" class="btn btn-dark"> {{ user.username }} <i class="fa fa-edit"></i></button>
+<button (click)="open(content)" class="btn btn-dark"> {{ user?.username }} <i class="fa fa-edit"></i></button>

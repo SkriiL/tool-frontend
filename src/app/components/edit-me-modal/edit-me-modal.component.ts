@@ -41,12 +41,20 @@ export class EditMeModalComponent implements OnInit {
   }
 
   close(modal) {
-    this.username = undefined;
-    this.email = undefined;
-    this.password = undefined;
-    this.imgUrl = undefined;
-    this.rights = undefined;
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.password = this.user.password;
+    this.imgUrl = this.user.imgUrl;
+    this.rights = this.user.rights;
     modal.close();
+  }
+
+  reset() {
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.password = this.user.password;
+    this.imgUrl = this.user.imgUrl;
+    this.rights = this.user.rights;
   }
 
   save(modal) {
@@ -70,6 +78,10 @@ export class EditMeModalComponent implements OnInit {
 
   isCurrentRight(rights) {
     return rights === this.rights;
+  }
+
+  showFounder(rights: Right) {
+    return rights.id < 3 || this.rights.id === 3;
   }
 
 }

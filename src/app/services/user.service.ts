@@ -13,9 +13,9 @@ export class UserService {
     this.socketService.sendRequest('getUserById', id.toString());
     return new Observable<User>(observer => {
       const event = 'user' + id;
-      this.socketService.onEvent(event).subscribe(u => {
+      const sub = this.socketService.onEvent(event).subscribe(u => {
         u.rights = this.rightService.getSingleById(u.rights);
-        return observer.next(u);
+        return observer.next(u) + sub.unsubscribe();
       });
     });
   }

@@ -9,7 +9,10 @@ export class RightService {
 
   constructor() { }
 
-  getSingleById(id: number): Right {
+  getSingleById(id): Right {
+    if (typeof id === 'object') {
+      return id;
+    }
     return this.rights.find(r => r.id === id);
   }
 
