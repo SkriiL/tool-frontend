@@ -25,6 +25,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { ChatDateComponent } from './components/chat-date/chat-date.component';
 import { ViewUserModalComponent } from './components/view-user-modal/view-user-modal.component';
 import { ImgPickerModalComponent } from './components/img-picker-modal/img-picker-modal.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserEditComponent } from './pages/users/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ImgPickerModalComponent } from './components/img-picker-modal/img-picke
     ChatDateComponent,
     ViewUserModalComponent,
     ImgPickerModalComponent,
+    UsersComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,

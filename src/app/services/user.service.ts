@@ -52,6 +52,10 @@ export class UserService {
     this.socketService.sendRequest('editUser', userStr);
   }
 
+  deleteById(id: number) {
+    this.socketService.sendRequest('deleteUser', id.toString());
+  }
+
   constructor(private socketService: SocketService,
               private rightService: RightService) { }
 }
