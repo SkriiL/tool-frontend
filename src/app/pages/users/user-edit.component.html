@@ -1,0 +1,26 @@
+<form class="mr-2">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input class="form-control" id="id" [value]="_user.id" disabled>
+  </div>
+  <div class="form-group">
+    <label for="username">Nutzername</label>
+    <input class="form-control" id="username" name="username" [(ngModel)]="username">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" id="email" name="email" [(ngModel)]="email">
+  </div>
+  <div class="form-group">
+    <label for="rights">Rechte</label>
+    <select class="form-control" id="rights">
+      <option *ngFor="let right of rightService.getAll()" [value]="right" (click)="setRights(right)"
+              [disabled]="right.id === 3" [selected]="isCurrentRight(right)">{{ right.name }}</option>
+    </select>
+  </div>
+  <div class="align-content-center">
+    <button class="btn btn-danger mr-2" (click)="close()">Abbrechen</button>
+    <button class="btn btn-secondary mr-2" (click)="reset()">Zurücksetzen</button>
+    <button type="submit" class="btn btn-primary" (click)="edit()">Speichern</button>
+  </div>
+</form>
