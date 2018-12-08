@@ -37,5 +37,18 @@ export class BookService {
     this.socketService.sendRequest('addBook', bookStr);
   }
 
+  search(searchStr: string) {
+    this.socketService.sendRequest('searchBook', searchStr);
+    return new Observable<Book[]>(observer => {
+      this.socketService.onEvent('searchedBook').subscribe(bs => {
+        for (let i = 0; i < bs.length; i++) {
+          bs[i].own = bs[i].own === 'true';
+          bs[i].read = bs[i].read === 'true';
+        }
+        return observer.next(bs);
+      });
+    });
+  }
+
   constructor(private socketService: SocketService) { }
 }

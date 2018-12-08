@@ -17,8 +17,8 @@ export class BookEditComponent implements OnInit {
   public read: boolean;
   public link: string;
   public _book: Book;
-
-  public def;
+  public searchStr: string;
+  public searchedBooks: Book[];
 
   @Output() clicked = new EventEmitter<boolean>();
 
@@ -87,6 +87,23 @@ export class BookEditComponent implements OnInit {
       this._book.read, this._book.link, this._book.userId);
     this.toastr.success(this._book.title + ' wurde hinzugefügt.');
     this.close(true);
+  }
+
+  search() {
+    console.log('Hallo');
+    const sub = this.bookService.search(this.searchStr).subscribe(bs => {
+      this.searchedBooks = bs;
+      console.log(bs);
+      sub.unsubscribe();
+    }
+    );
+  }
+
+  select(book: Book) {
+    this.title = book.title;
+    this.author = book.author;
+    this.price = book.price;
+    this.link = book.link;
   }
 
 }
