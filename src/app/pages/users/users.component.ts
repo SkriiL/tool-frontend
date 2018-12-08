@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class UsersComponent implements OnInit {
   public users: User[];
   public selectedUser: User;
+  public currentUser: User;
 
   constructor(private userService: UserService,
               private toastr: ToastrService,
@@ -18,6 +19,10 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getAll().subscribe(us => this.users = us);
+    this.userService.getSingleById(parseInt(sessionStorage.getItem('id'), 10)).subscribe( u => {
+      this.currentUser = u;
+    }
+    );
   }
 
   select(user: User) {

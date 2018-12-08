@@ -23,7 +23,7 @@
         <td>{{ book.price | currency }}</td>
         <td>{{ book.own | trueFalse }}</td>
         <td>{{ book.read | trueFalse }}</td>
-        <td><button class="btn btn-outline-danger" (click)="delete(book)"><a class="fa fa-trash"></a></button></td>
+        <td><button class="btn btn-transparent" (click)="delete(book)"><a class="fa fa-trash text-danger"></a></button></td>
       </tr>
       </tbody>
     </table>

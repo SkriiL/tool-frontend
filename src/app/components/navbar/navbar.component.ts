@@ -3,6 +3,7 @@ import {User} from '../../models/user.model';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
               private router: Router,
-              private location: Location) { }
+              private location: Location,) { }
 
   ngOnInit() {
   }
@@ -36,5 +37,4 @@ export class NavbarComponent implements OnInit {
       this.toastr.error('Bitte erfragen sie die Rechte bei einem Admin.', 'Sie haben nicht die nötigen Rechte!');
     }
   }
-
 }
