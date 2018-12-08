@@ -57,7 +57,7 @@ export class BookEditComponent implements OnInit {
       this.bookService.edit(this._book);
       this.toastr.success(this._book.title + ' wurde bearbeitet.');
       this.router.navigate(['/books']);
-      this.close();
+      this.close(true);
     }
   }
 
@@ -70,8 +70,8 @@ export class BookEditComponent implements OnInit {
     this.link = this._book.link;
   }
 
-  close() {
-    this.clicked.emit(true);
+  close(value) {
+    this.clicked.emit(value);
     this._book = undefined;
   }
 
@@ -86,8 +86,7 @@ export class BookEditComponent implements OnInit {
     this.bookService.add(this._book.title, this._book.author, this._book.price, this._book.own,
       this._book.read, this._book.link, this._book.userId);
     this.toastr.success(this._book.title + ' wurde hinzugefügt.');
-    window.location.reload();
-    this.close();
+    this.close(true);
   }
 
 }

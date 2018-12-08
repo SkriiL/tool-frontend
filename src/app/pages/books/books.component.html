@@ -23,12 +23,15 @@
         <td>{{ book.price | currency }}</td>
         <td>{{ book.own | trueFalse }}</td>
         <td>{{ book.read | trueFalse }}</td>
-        <td><button class="btn btn-transparent" (click)="delete(book)"><a class="fa fa-trash text-danger"></a></button></td>
+        <td><app-really-modal [title]="'Buch ' + book.title + ' löschen'" buttonClass="btn btn-transparent"
+                              iconClass="fa fa-trash text-danger" (answer)="delete(book, $event)"
+                              [modalContent]="'Soll das Buch ' + book.title + ' wirklich gelöscht werden?'">
+        </app-really-modal></td>
       </tr>
       </tbody>
     </table>
   </div>
   <div class="col-4">
-    <app-book-edit [book]="selectedBook" [new]="new" (clicked)="close()"></app-book-edit>
+    <app-book-edit [book]="selectedBook" [new]="new" (clicked)="close($event)"></app-book-edit>
   </div>
 </div>

@@ -26,8 +26,11 @@ export class BooksComponent implements OnInit {
     this.selectedBook = book;
   }
 
-  close() {
+  close(clicked) {
     this.selectedBook = undefined;
+    if (clicked) {
+      this.books = this.bookService.getAllForUser(parseInt(sessionStorage.getItem('id'), 10));
+    }
   }
 
   add() {
@@ -36,10 +39,11 @@ export class BooksComponent implements OnInit {
     this.selectedBook.id = 0;
   }
 
-  delete(book: Book) {
-    this.bookService.deleteById(book.id);
-    window.location.reload();
-    this.toastr.success(book.title + ' wurde gelöscht!');
+  delete(book: Book, event: boolean) {
+    if (event) {
+      this.bookService.deleteById(book.id);
+      this.books = this.bookService.getAllForUser(parseInt(sessionStorage.getItem('id'), 10));
+      this.toastr.success(book.title + ' wurde gelöscht!');
+    }
   }
-
 }

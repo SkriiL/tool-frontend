@@ -36,9 +36,8 @@ export class UsersComponent implements OnInit {
   delete(user, event) {
     if (event) {
       this.userService.deleteById(user.id);
-      window.location.reload();
-      this.router.navigate(['/users']);
-      this.toastr.success(user.username + ' wurde gelöscht!');
+      this.userService.getAll().subscribe(us => this.users = us);
+      this.toastr.success('Nutzer ' + user.username + ' wurde gelöscht.');
     }
   }
 
