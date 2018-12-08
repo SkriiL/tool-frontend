@@ -33,11 +33,13 @@ export class UsersComponent implements OnInit {
     this.selectedUser = undefined;
   }
 
-  delete(user) {
-    this.userService.deleteById(user.id);
-    window.location.reload();
-    this.router.navigate(['/users']);
-    this.toastr.success(user.username + ' wurde gelöscht!');
+  delete(user, event) {
+    if (event) {
+      this.userService.deleteById(user.id);
+      window.location.reload();
+      this.router.navigate(['/users']);
+      this.toastr.success(user.username + ' wurde gelöscht!');
+    }
   }
 
 }

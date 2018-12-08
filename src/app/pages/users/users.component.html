@@ -22,7 +22,12 @@
         <td>{{ user.id }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.rights.name }}</td>
-        <td><button class="btn btn-transparent" (click)="delete(user)" [disabled]="!currentUser?.rights.canDelete"><a class="fa fa-trash text-danger"></a></button></td>
+        <td>
+          <app-really-modal [title]="'Nutzer ' + user.username + ' löschen'" buttonClass="btn btn-transparent"
+                            iconClass="fa fa-trash text-danger" (answer)="delete(user, $event)"
+                            [modalContent]="'Soll der Nutzer ' + user.username + ' wirklich gelöscht werden?'">
+          </app-really-modal>
+        </td>
       </tr>
       </tbody>
     </table>

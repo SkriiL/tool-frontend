@@ -27,6 +27,7 @@ import { ViewUserModalComponent } from './components/view-user-modal/view-user-m
 import { ImgPickerModalComponent } from './components/img-picker-modal/img-picker-modal.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserEditComponent } from './pages/users/user-edit.component';
+import { ReallyModalComponent } from './components/really-modal/really-modal.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { UserEditComponent } from './pages/users/user-edit.component';
     ImgPickerModalComponent,
     UsersComponent,
     UserEditComponent,
+    ReallyModalComponent,
   ],
   imports: [
     BrowserModule,
