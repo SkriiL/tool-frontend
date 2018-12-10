@@ -1,0 +1,15 @@
+<div class="row mt-2">
+  <div class="col-8">
+    <h4 class="ml-2">Mathe</h4>
+    <form class="ml-2">
+      <div class="form-group">
+        <label for="type">Funktionstyp</label>
+        <select class="form-control" id="type">
+          <option disabled>Auswählen</option>
+          <option (click)="polynomial()">Ganzrational</option>
+        </select>
+      </div>
+    </form>
+    <app-polynomial *ngIf="type === 'polynomial'"></app-polynomial>
+  </div>
+</div>

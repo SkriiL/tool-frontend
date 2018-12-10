@@ -1,0 +1,18 @@
+<div class="ml-2">
+  <form>
+    <div class="form-group">
+      <label for="level">Funktionsgrad</label>
+      <input type="number" class="form-control" [(ngModel)]="level" id="level" name="level" (ngModelChange)="setAlphabet()">
+      <div class="form-group" *ngFor="let letter of rightAlphabet">
+        <label [for]="letter">{{ letter }}</label>
+        <input type="number" class="form-control" [id]="letter">
+      </div>
+      <div class="row ml-2">
+        <button *ngIf="level" class="btn btn-outline-secondary col-4" (click)="setParams()">Ableiten</button>
+        <!--<input *ngIf="level" class="form-control col-4" readonly [value]="params | mathFunction:'polynomial'" placeholder="Funktion">-->
+        <input *ngIf="params.length > 0" class="form-control col-4" readonly [value]="params | mathFunction:'polynomial'">
+        <input *ngIf="params.length > 0" class="form-control col-4" readonly [value]="deriv" placeholder="Ableitung">
+      </div>
+    </div>
+  </form>
+</div>

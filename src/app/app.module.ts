@@ -28,7 +28,10 @@ import { ImgPickerModalComponent } from './components/img-picker-modal/img-picke
 import { UsersComponent } from './pages/users/users.component';
 import { UserEditComponent } from './pages/users/user-edit.component';
 import { ReallyModalComponent } from './components/really-modal/really-modal.component';
-
+import { MathsComponent } from './pages/maths/maths.component';
+import { PolynomialComponent } from './components/polynomial/polynomial.component';
+import {MathsService} from './services/maths.service';
+import { MathFunctionPipe } from './pipes/math-function.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,9 @@ import { ReallyModalComponent } from './components/really-modal/really-modal.com
     UsersComponent,
     UserEditComponent,
     ReallyModalComponent,
+    MathsComponent,
+    PolynomialComponent,
+    MathFunctionPipe,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,7 @@ import { ReallyModalComponent } from './components/really-modal/really-modal.com
     ToastrModule.forRoot(),
     NgbModule,
   ],
-  providers: [UserService, BookService, MessageService],
+  providers: [UserService, BookService, MessageService, MathsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
