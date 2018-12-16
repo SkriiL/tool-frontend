@@ -10,7 +10,7 @@
     <div class="form-group">
       <select class="form-control" id="results">
         <option disabled>Buch auswählen</option>
-        <option *ngFor="let book of searchedBooks" (click)="select(book)">
+        <option *ngFor="let book of searchedBooks" (ngClick)="select(book)">
           {{ book.title }} - {{ book.author }}
         </option>
       </select>

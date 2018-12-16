@@ -33,6 +33,7 @@ import { PolynomialComponent } from './components/polynomial/polynomial.componen
 import {MathsService} from './services/maths.service';
 import { MathFunctionPipe } from './pipes/math-function.pipe';
 import { BookMobileComponent } from './pages/books/book-mobile.component';
+import { BookDropdownComponent } from './components/book-dropdown/book-dropdown.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { BookMobileComponent } from './pages/books/book-mobile.component';
     PolynomialComponent,
     MathFunctionPipe,
     BookMobileComponent,
+    BookDropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { BookMobileComponent } from './pages/books/book-mobile.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule,
+    NgbModule
   ],
   providers: [UserService, BookService, MessageService, MathsService],
   bootstrap: [AppComponent]
