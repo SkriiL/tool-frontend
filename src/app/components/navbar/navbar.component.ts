@@ -11,12 +11,15 @@ import {UserService} from '../../services/user.service';
 })
 export class NavbarComponent implements OnInit {
   public currentUser: User;
+  public isDesktop: boolean;
+  public isCollapsed = true;
 
   constructor(private toastr: ToastrService,
               private router: Router,
-              private location: Location,) { }
+              private location: Location) { }
 
   ngOnInit() {
+    this.isDesktop = sessionStorage.getItem('isDesktop') === '1';
   }
 
   loggedIn(user: User) {
@@ -36,5 +39,10 @@ export class NavbarComponent implements OnInit {
     } else {
       this.toastr.error('Bitte erfragen sie die Rechte bei einem Admin.', 'Sie haben nicht die nötigen Rechte!');
     }
+    this.toggle();
+  }
+
+  toggle() {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

@@ -1,4 +1,4 @@
-<div class="row mt-2">
+<div *ngIf="isDesktop" class="row mt-2">
   <div class="col-8">
     <h4 class="ml-2">
       Bücher
@@ -34,4 +34,18 @@
   <div class="col-4">
     <app-book-edit [book]="selectedBook" [new]="new" (clicked)="close($event)"></app-book-edit>
   </div>
+</div>
+
+<div class="mt-2" *ngIf="!isDesktop">
+  <h4 class="ml-2">
+    Bücher
+    <app-book-mobile [new]="true" [book]="newBook"></app-book-mobile>
+  </h4>
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let book of (books | async)">
+        <app-book-mobile [book]="book"></app-book-mobile>
+      </tr>
+    </tbody>
+  </table>
 </div>

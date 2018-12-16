@@ -32,6 +32,7 @@ import { MathsComponent } from './pages/maths/maths.component';
 import { PolynomialComponent } from './components/polynomial/polynomial.component';
 import {MathsService} from './services/maths.service';
 import { MathFunctionPipe } from './pipes/math-function.pipe';
+import { BookMobileComponent } from './pages/books/book-mobile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { MathFunctionPipe } from './pipes/math-function.pipe';
     MathsComponent,
     PolynomialComponent,
     MathFunctionPipe,
+    BookMobileComponent,
   ],
   imports: [
     BrowserModule,

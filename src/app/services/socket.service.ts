@@ -10,7 +10,7 @@ export class SocketService {
   private socket;
 
   initSocket() {
-    this.socket = socketIo('localhost:56789'); // 'skriil.ddnss.de:56789'
+    this.socket = socketIo('192.168.178.46:56789'); // 'skriil.ddnss.de:56789'
   }
 
   public sendRequest(event: string, args: string) {

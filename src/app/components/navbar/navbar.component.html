@@ -1,13 +1,46 @@
-<nav *ngIf="!currentUser" class="navbar navbar-dark bg-dark">
-  <app-login (loggedIn)="loggedIn($event)"></app-login>
-  <app-register-modal></app-register-modal>
-</nav>
+<div *ngIf="isDesktop">
+  <nav *ngIf="!currentUser" class="navbar navbar-dark bg-dark">
+    <app-login (loggedIn)="loggedIn($event)"></app-login>
+    <app-register-modal></app-register-modal>
+  </nav>
 
-<nav *ngIf="currentUser" class="navbar navbar-dark bg-dark">
-  <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
-  <button class="col-md btn btn-dark" routerLink="/users">Nutzer</button>
-  <button class="col-md btn btn-dark" routerLink="/maths">Mathe</button>
-  <button class="col-md btn btn-dark" (click)="chat()">Chatroom</button>
-  <app-edit-me-modal [currentUser]="currentUser"></app-edit-me-modal>
-  <button class="col-1 btn btn-outline-primary" (click)="logout()">Logout</button>
-</nav>
+  <nav *ngIf="currentUser" class="navbar navbar-dark bg-dark">
+    <button class="col-md btn btn-dark" routerLink="/books">Bücher</button>
+    <button class="col-md btn btn-dark" routerLink="/users">Nutzer</button>
+    <button class="col-md btn btn-dark" routerLink="/maths">Mathe</button>
+    <button class="col-md btn btn-dark" (click)="chat()">Chatroom</button>
+    <app-edit-me-modal [currentUser]="currentUser"></app-edit-me-modal>
+    <button class="col-md btn btn-outline-primary" (click)="logout()">Logout</button>
+  </nav>
+</div>
+
+<div *ngIf="!isDesktop">
+  <nav *ngIf="!currentUser" class="navbar navbar-dark bg-dark">
+    <app-login (loggedIn)="loggedIn($event)"></app-login>
+    <app-register-modal></app-register-modal>
+  </nav>
+
+  <nav *ngIf="currentUser" class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" (click)="toggle()" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button class="btn btn-outline-primary" (click)="logout()">Logout</button>
+
+    <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-dark" (click)="toggle()" routerLink="/books">Bücher</a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-dark" (click)="toggle()" routerLink="/users">Nutzer</a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-dark" (click)="toggle()" routerLink="/maths">Mathe</a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-dark" style="color: white" (click)="chat()">Chatroom</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

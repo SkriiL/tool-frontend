@@ -51,8 +51,8 @@ export class BookEditComponent implements OnInit {
       this._book.title = this.title ? this.title : this._book.title;
       this._book.author = this.author ? this.author : this._book.author;
       this._book.price = this.price ? this.price : this._book.price;
-      this._book.own = this.own ? this.own : this._book.own;
-      this._book.read = this.read ? this.read : this._book.read;
+      this._book.own = this.own;
+      this._book.read = this.read;
       this._book.link = this.link ? this.link : this._book.link;
       this.bookService.edit(this._book);
       this.toastr.success(this._book.title + ' wurde bearbeitet.');
@@ -90,7 +90,6 @@ export class BookEditComponent implements OnInit {
   }
 
   search() {
-    console.log('Hallo');
     const sub = this.bookService.search(this.searchStr).subscribe(bs => {
       this.searchedBooks = bs;
       console.log(bs);

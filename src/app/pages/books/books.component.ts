@@ -12,12 +12,15 @@ export class BooksComponent implements OnInit {
   public selectedBook: Book;
   public books: Observable<Book[]>;
   public new: boolean;
+  public isDesktop: boolean;
+  public newBook = new Book();
 
   constructor(private bookService: BookService,
               private toastr: ToastrService) { }
 
   ngOnInit() {
     const id = parseInt(sessionStorage.getItem('id'), 10);
+    this.isDesktop = sessionStorage.getItem('isDesktop') === '1';
     this.books = this.bookService.getAllForUser(id);
   }
 

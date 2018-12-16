@@ -39,6 +39,6 @@ export class MathFunctionPipe implements PipeTransform {
       case 9: return '\u8313';
       case 0: return '\u8304';
     }
-  };
+  }
 
 }
