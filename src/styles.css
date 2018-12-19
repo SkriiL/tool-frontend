@@ -27,3 +27,10 @@
   cursor: pointer;
   color: darkslategrey;
 }
+
+.own-dropdown-item {
+  height: 50px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}

@@ -12,12 +12,14 @@ export class UsersComponent implements OnInit {
   public users: User[];
   public selectedUser: User;
   public currentUser: User;
+  public isDesktop: boolean;
 
   constructor(private userService: UserService,
               private toastr: ToastrService,
               private router: Router) { }
 
   ngOnInit() {
+    this.isDesktop = sessionStorage.getItem('isDesktop') === '1';
     this.userService.getAll().subscribe(us => this.users = us);
     this.userService.getSingleById(parseInt(sessionStorage.getItem('id'), 10)).subscribe( u => {
       this.currentUser = u;

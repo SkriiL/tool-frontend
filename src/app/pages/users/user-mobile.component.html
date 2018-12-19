@@ -1,0 +1,39 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      {{ _user.username }}
+      <img [src]="'../../../assets/' + _user.imgUrl" width="20">
+      <app-really-modal [title]="'Nutzer ' + _user.username + ' löschen'" buttonClass="btn btn-transparent"
+                        iconClass="fa fa-trash text-danger" (answer)="delete($event)"
+                        [modalContent]="'Soll das Buch ' + _user.username + ' wirklich gelöscht werden?'">
+      </app-really-modal>
+    </h4>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="username">Nutzername</label>
+        <input class="form-control" [(ngModel)]="username" name="username" id="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" [(ngModel)]="email" name="email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="rights">Rechte</label>
+        <app-rights-dropdown (selected)="setRights($event)" [currentRight]="_user.rights" id="rights"></app-rights-dropdown>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-outline-danger" (click)="close(modal, true)">Abbrechen</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="reset()">Zurücksetzen</button>
+    <button type="button" class="btn btn-outline-primary" (click)="save(modal)">Speichern</button>
+  </div>
+</ng-template>
+
+<div (click)="open(content)">
+  <img [src]="'../../../assets/' + _user.imgUrl" width="20">
+  <strong>{{ _user.username }}</strong><br>
+  <span>{{ _user.rights.name }} </span>
+</div>

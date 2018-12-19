@@ -34,6 +34,8 @@ import {MathsService} from './services/maths.service';
 import { MathFunctionPipe } from './pipes/math-function.pipe';
 import { BookMobileComponent } from './pages/books/book-mobile.component';
 import { BookDropdownComponent } from './components/book-dropdown/book-dropdown.component';
+import { UserMobileComponent } from './pages/users/user-mobile.component';
+import { RightsDropdownComponent } from './components/rights-dropdown/rights-dropdown.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +62,8 @@ import { BookDropdownComponent } from './components/book-dropdown/book-dropdown.
     MathFunctionPipe,
     BookMobileComponent,
     BookDropdownComponent,
+    UserMobileComponent,
+    RightsDropdownComponent,
   ],
   imports: [
     BrowserModule,
