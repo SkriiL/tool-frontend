@@ -16,6 +16,7 @@ export class UserMobileComponent implements OnInit {
   public username: string;
   public email: string;
   public rights: Right;
+  private currentUser: User;
 
   @Input('user')
   set user(value: User) {
@@ -32,10 +33,14 @@ export class UserMobileComponent implements OnInit {
               public rightService: RightService) { }
 
   ngOnInit() {
+    const id = parseInt(sessionStorage.getItem('id'), 10);
+    this.userService.getSingleById(id).subscribe(u => this.currentUser = u);
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    if (this.currentUser.rights.canModifyOthers && this.currentUser.rights.id > this._user.rights.id || this.currentUser.id === this._user.id) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    }
   }
 
   reset() {

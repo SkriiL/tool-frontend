@@ -28,7 +28,9 @@ export class UsersComponent implements OnInit {
   }
 
   select(user: User) {
-    this.selectedUser = user;
+    if (this.currentUser.rights.canModifyOthers && this.currentUser.rights.id > user.rights.id || this.currentUser.id === user.id) {
+      this.selectedUser = user;
+    }
   }
 
   close() {
